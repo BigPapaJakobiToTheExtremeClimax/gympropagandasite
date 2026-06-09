@@ -1,4 +1,3 @@
-/* Global reset */
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +7,8 @@
 
 /* Page background */
 body {
-    background-color: #000000;
-    color: #ffffff;
+    background: #000;
+    color: #fff;
 }
 
 /* Header */
@@ -37,15 +36,10 @@ header {
     color: #cccccc;
 }
 
-body {
-    background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
-}
-
+/* Form container */
 .form-container {
     width: 300px;
-    margin: 120px auto;
+    margin: 10vh auto;
     text-align: center;
 }
 
@@ -55,6 +49,12 @@ input {
     margin: 8px 0;
     border: none;
     border-radius: 4px;
+    background: #111;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #888;
 }
 
 button {
@@ -67,7 +67,50 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background: #0066d6;
+}
+
 .error {
     color: #ff4444;
     margin-bottom: 10px;
+}
+
+/* Navbar */
+.navbar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Requirements */
+.requirements {
+    margin-top: 20px;
+    text-align: left;
+    color: #ccc;
+}
+
+.requirements h3 {
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.requirements ul {
+    margin-left: 20px;
+}
+
+.requirements li {
+    margin-bottom: 4px;
 }

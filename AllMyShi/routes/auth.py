@@ -1,4 +1,5 @@
 import sqlite3
+import re
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -30,11 +31,32 @@ def login():
 def register():
     if request.method == "POST":
         username = request.form["username"]
-        password = generate_password_hash(request.form["password"])
+        password = request.form["password"]
+
+        # Email validation
+        email_pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+        if not re.match(email_pattern, username):
+            return render_template("register.html", error="Please enter a valid email address.")
+
+        # Password requirements
+        if len(password) < 8:
+            return render_template("register.html", error="Password must be at least 8 characters long.")
+
+        if not re.search(r"[A-Z]", password):
+            return render_template("register.html", error="Password must contain at least one capital letter.")
+
+        if not re.search(r"[0-9]", password):
+            return render_template("register.html", error="Password must contain at least one number.")
+
+        # Hash AFTER validation
+        hashed_password = generate_password_hash(password)
 
         db = get_db()
-        db.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
-        db.commit()
+        try:
+            db.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
+            db.commit()
+        except sqlite3.IntegrityError:
+            return render_template("register.html", error="This email is already registered.")
 
         return redirect(url_for("auth.login"))
 
