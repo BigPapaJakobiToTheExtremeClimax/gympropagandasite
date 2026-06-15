@@ -114,3 +114,37 @@ button:hover {
 .requirements li {
     margin-bottom: 4px;
 }
+
+.navbar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-right {
+    margin-left: auto;
+}
+
+.template-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.template-btn {
+    display: block;
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.template-btn:hover {
+    background: #0066d6;
+}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>Select a Workout Template</h2>
+
+    <div class="template-buttons">
+        <a class="template-btn" href="{{ url_for('main.push_workout') }}">Push Day</a>
+    </div>
+    <div class="template-buttons">
+        <a class="template-btn" href="{{ url_for('main.pull_workout') }}">Pull Day</a>
+    </div>
+</div>
+{% endblock %}

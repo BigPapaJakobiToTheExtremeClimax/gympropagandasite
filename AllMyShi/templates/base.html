@@ -16,15 +16,21 @@
         <a href="{{ url_for('main.index') }}">Home</a>
 
         {% if session.get('user_id') %}
-            <a href="{{ url_for('auth.logout') }}">Logout</a>
+            <a href="{{ url_for('main.dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('main.workout') }}">Workout</a>
+
+            <div class="nav-right">
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+            </div>
         {% else %}
             <a href="{{ url_for('auth.login') }}">Login</a>
             <a href="{{ url_for('auth.register') }}">Register</a>
         {% endif %}
     </nav>
 </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
 </body>
 </html>
