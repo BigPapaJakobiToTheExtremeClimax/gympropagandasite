@@ -29,6 +29,12 @@
     </nav>
 </header>
 
+<script>
+function markDone(button) {
+    button.classList.toggle("completed");
+}
+</script>
+
 <main>
     {% block content %}{% endblock %}
 </main>

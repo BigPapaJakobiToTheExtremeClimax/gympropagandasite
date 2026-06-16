@@ -13,14 +13,16 @@
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
         <!-- Close Grip Lat Pulldown -->
         <div class="exercise-card">
             <h3>Close Grip Lat Pulldown</h3>
@@ -28,14 +30,16 @@
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
         <!-- T-Bar Row -->
         <div class="exercise-card">
             <h3>Tbar Row</h3>
@@ -43,14 +47,16 @@
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
         <!-- Bicep Curl (Cable) -->
         <div class="exercise-card">
             <h3>Bicep Curl (Cable)</h3>
@@ -58,14 +64,16 @@
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
         <!-- Hammer Curl (Cable) -->
         <div class="exercise-card">
             <h3>Tricep Extension (Cable)</h3>
@@ -73,11 +81,19 @@
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
+                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
     </div>
 </div>
+
+<form method="POST" action="{{ url_for('main.save_workout') }}">
+    <input type="hidden" name="template_name" value="Pull">
+    <button type="submit" class="template-btn">Save Workout</button>
+</form>
+
 {% endblock %}

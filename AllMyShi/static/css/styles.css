@@ -148,3 +148,16 @@ button:hover {
 .template-btn:hover {
     background: #0066d6;
 }
+
+.done-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.done-btn.completed {
+    background: #28a745;
+}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>Lower Day</h2>
+    <p>Enter your sets, reps, and weight for each exercise.</p>
+
+    <div class="workout-template">
+
+        <!-- Weighted Decline Situps -->
+        <div class="exercise-card">
+            <h3>Weighted Decline Situps</h3>
+            {% for set in range(1, 3) %}
+            <div class="set-row">
+                <label>Set {{ set }}:</label>
+                <input type="number" placeholder="Reps">
+                <input type="number" placeholder="Weight (kg)">
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Standing Calf Raises (Machine) -->
+        <div class="exercise-card">
+            <h3>Standing Calf Raises (Machine)</h3>
+            {% for set in range(1, 3) %}
+            <div class="set-row">
+                <label>Set {{ set }}:</label>
+                <input type="number" placeholder="Reps">
+                <input type="number" placeholder="Weight (kg)">
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Leg Extensions -->
+        <div class="exercise-card">
+            <h3>Leg Extensions</h3>
+            {% for set in range(1, 3) %}
+            <div class="set-row">
+                <label>Set {{ set }}:</label>
+                <input type="number" placeholder="Reps">
+                <input type="number" placeholder="Weight (kg)">
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Lying Hamstring Curls -->
+        <div class="exercise-card">
+            <h3>Lying Hamstring Curls</h3>
+            {% for set in range(1, 3) %}
+            <div class="set-row">
+                <label>Set {{ set }}:</label>
+                <input type="number" placeholder="Reps">
+                <input type="number" placeholder="Weight (kg)">
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Hacksquat (Machine) — 1 Set -->
+        <div class="exercise-card">
+            <h3>Hacksquat (Machine)</h3>
+            <div class="set-row">
+                <label>Set 1:</label>
+                <input type="number" placeholder="Reps">
+                <input type="number" placeholder="Weight (kg)">
+            </div>
+        </div>
+
+        <!-- Back Extensions (Barbell) -->
+        <div class="exercise-card">
+            <h3>Back Extensions (Barbell)</h3>
+            {% for set in range(1, 3) %}
+            <div class="set-row">
+                <label>Set {{ set }}:</label>
+                <input type="number" placeholder="Reps">
+                <input type="number" placeholder="Weight (kg)">
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+<form method="POST" action="{{ url_for('main.save_workout') }}">
+    <input type="hidden" name="template_name" value="Lower">
+    <button type="submit" class="template-btn">Save Workout</button>
+</form>
+{% endblock %}

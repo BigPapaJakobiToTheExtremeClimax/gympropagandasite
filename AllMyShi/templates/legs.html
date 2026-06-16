@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="form-container">
-    <h2>Push Day</h2>
+    <h2>Legs Day</h2>
     <p>Enter your sets, reps, and weight for each exercise.</p>
 
     <div class="workout-template">
 
-        <!-- Bench Press -->
+        <!-- Leg Extensions -->
         <div class="exercise-card">
-            <h3>Bench Press</h3>
+            <h3>Leg Extensions</h3>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
@@ -20,12 +20,12 @@
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
-        <!-- Incline Bench Press -->
+        <!-- Lying Hamstring Curls -->
         <div class="exercise-card">
-            <h3>Incline Bench Press</h3>
+            <h3>Lying Hamstring Curls</h3>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
@@ -37,12 +37,12 @@
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
-        <!-- Shoulder Press (Machine) -->
+        <!-- Barbell Squat -->
         <div class="exercise-card">
-            <h3>Shoulder Press (Machine)</h3>
+            <h3>Barbell Squat</h3>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
@@ -54,12 +54,12 @@
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
-        <!-- Lateral Raises (Cable) -->
+        <!-- Standing Calf Raises (Machine) -->
         <div class="exercise-card">
-            <h3>Lateral Raises (Cable)</h3>
+            <h3>Standing Calf Raises (Machines)</h3>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
@@ -71,12 +71,12 @@
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
+
             </div>
         </div>
-
-        <!-- Tricep Extension (Cable) -->
+        <!-- Weighted Decline Crunches -->
         <div class="exercise-card">
-            <h3>Tricep Extension (Cable)</h3>
+            <h3>Weighted Decline Crunches</h3>
             <div class="set-row">
                 <label>Set:</label>
                 <input type="number" placeholder="Reps">
@@ -88,31 +88,11 @@
                 <input type="number" placeholder="Reps">
                 <input type="number" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
-        </div>
-
-        <!-- Overhead Tricep Extension (Cable) -->
-        <div class="exercise-card">
-            <h3>Overhead Tricep Extension (Cable)</h3>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
-        </div>
-
     </div>
 </div>
 
 <form method="POST" action="{{ url_for('main.save_workout') }}">
-    <input type="hidden" name="template_name" value="Push">
+    <input type="hidden" name="template_name" value="Legs">
     <button type="submit" class="template-btn">Save Workout</button>
 </form>
 {% endblock %}
