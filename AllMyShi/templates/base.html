@@ -32,9 +32,29 @@
 <script>
 function markDone(button) {
     button.classList.toggle("completed");
+
 }
 </script>
+<script>
+function syncInputs() {
+    document.querySelectorAll(".exercise-card").forEach(card => {
+        const exercise = card.dataset.exercise;
 
+        card.querySelectorAll(".set-row").forEach((row, index) => {
+            const setNumber = index + 1;
+
+            const repsInput = row.querySelector(".reps-input");
+            const weightInput = row.querySelector(".weight-input");
+
+            const repsHidden = document.getElementById(`reps_${setNumber}_${exercise}`);
+            const weightHidden = document.getElementById(`weight_${setNumber}_${exercise}`);
+
+            if (repsHidden) repsHidden.value = repsInput.value;
+            if (weightHidden) weightHidden.value = weightInput.value;
+        });
+    });
+}
+</script>
 <main>
     {% block content %}{% endblock %}
 </main>

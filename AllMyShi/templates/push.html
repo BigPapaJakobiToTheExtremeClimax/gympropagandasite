@@ -7,105 +7,105 @@
     <div class="workout-template">
 
         <!-- Bench Press -->
-        <div class="exercise-card">
+        <div class="exercise-card" data-exercise="BenchPress">
             <h3>Bench Press</h3>
+
+            {% for set in range(1, 3) %}
             <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
+                <label>Set {{ set }}:</label>
+                <input type="number" class="reps-input" placeholder="Reps">
+                <input type="number" class="weight-input" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
+
+            <input type="hidden" name="reps_{{ set }}_BenchPress" id="reps_{{ set }}_BenchPress">
+            <input type="hidden" name="weight_{{ set }}_BenchPress" id="weight_{{ set }}_BenchPress">
+            {% endfor %}
         </div>
 
         <!-- Incline Bench Press -->
-        <div class="exercise-card">
+        <div class="exercise-card" data-exercise="InclineBenchPress">
             <h3>Incline Bench Press</h3>
+
+            {% for set in range(1, 3) %}
             <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
+                <label>Set {{ set }}:</label>
+                <input type="number" class="reps-input" placeholder="Reps">
+                <input type="number" class="weight-input" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
+
+            <input type="hidden" name="reps_{{ set }}_InclineBenchPress" id="reps_{{ set }}_InclineBenchPress">
+            <input type="hidden" name="weight_{{ set }}_InclineBenchPress" id="weight_{{ set }}_InclineBenchPress">
+            {% endfor %}
         </div>
 
         <!-- Shoulder Press (Machine) -->
-        <div class="exercise-card">
+        <div class="exercise-card" data-exercise="ShoulderPressMachine">
             <h3>Shoulder Press (Machine)</h3>
+
+            {% for set in range(1, 3) %}
             <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
+                <label>Set {{ set }}:</label>
+                <input type="number" class="reps-input" placeholder="Reps">
+                <input type="number" class="weight-input" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
+
+            <input type="hidden" name="reps_{{ set }}_ShoulderPressMachine" id="reps_{{ set }}_ShoulderPressMachine">
+            <input type="hidden" name="weight_{{ set }}_ShoulderPressMachine" id="weight_{{ set }}_ShoulderPressMachine">
+            {% endfor %}
         </div>
 
         <!-- Lateral Raises (Cable) -->
-        <div class="exercise-card">
+        <div class="exercise-card" data-exercise="LateralRaisesCable">
             <h3>Lateral Raises (Cable)</h3>
+
+            {% for set in range(1, 3) %}
             <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
+                <label>Set {{ set }}:</label>
+                <input type="number" class="reps-input" placeholder="Reps">
+                <input type="number" class="weight-input" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
+
+            <input type="hidden" name="reps_{{ set }}_LateralRaisesCable" id="reps_{{ set }}_LateralRaisesCable">
+            <input type="hidden" name="weight_{{ set }}_LateralRaisesCable" id="weight_{{ set }}_LateralRaisesCable">
+            {% endfor %}
         </div>
 
         <!-- Tricep Extension (Cable) -->
-        <div class="exercise-card">
+        <div class="exercise-card" data-exercise="TricepExtensionCable">
             <h3>Tricep Extension (Cable)</h3>
+
+            {% for set in range(1, 3) %}
             <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
+                <label>Set {{ set }}:</label>
+                <input type="number" class="reps-input" placeholder="Reps">
+                <input type="number" class="weight-input" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
+
+            <input type="hidden" name="reps_{{ set }}_TricepExtensionCable" id="reps_{{ set }}_TricepExtensionCable">
+            <input type="hidden" name="weight_{{ set }}_TricepExtensionCable" id="weight_{{ set }}_TricepExtensionCable">
+            {% endfor %}
         </div>
 
         <!-- Overhead Tricep Extension (Cable) -->
-        <div class="exercise-card">
+        <div class="exercise-card" data-exercise="OverheadTricepCable">
             <h3>Overhead Tricep Extension (Cable)</h3>
+
+            {% for set in range(1, 3) %}
             <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
+                <label>Set {{ set }}:</label>
+                <input type="number" class="reps-input" placeholder="Reps">
+                <input type="number" class="weight-input" placeholder="Weight (kg)">
                 <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
             </div>
-            <div class="set-row">
-                <label>Set:</label>
-                <input type="number" placeholder="Reps">
-                <input type="number" placeholder="Weight (kg)">
-                <button type="button" class="done-btn" onclick="markDone(this)">Done</button>
-            </div>
+
+            <input type="hidden" name="reps_{{ set }}_OverheadTricepCable" id="reps_{{ set }}_OverheadTricepCable">
+            <input type="hidden" name="weight_{{ set }}_OverheadTricepCable" id="weight_{{ set }}_OverheadTricepCable">
+            {% endfor %}
         </div>
 
     </div>
@@ -113,6 +113,7 @@
 
 <form method="POST" action="{{ url_for('main.save_workout') }}">
     <input type="hidden" name="template_name" value="Push">
-    <button type="submit" class="template-btn">Save Workout</button>
+    <button type="submit" class="template-btn" onclick="syncInputs()">Save Workout</button>
 </form>
+
 {% endblock %}

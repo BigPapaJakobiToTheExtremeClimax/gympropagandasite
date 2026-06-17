@@ -115,11 +115,6 @@ def save_workout():
     # Redirect back to dashboard after saving
     return redirect(url_for("main.dashboard"))
 
-@main_bp.route("/workout/save", methods=["POST"])
-def save_workout():
-    if not session.get("user_id"):
-        return redirect(url_for("auth.login"))
-
     user_id = session["user_id"]
     template_name = request.form.get("template_name")
 
