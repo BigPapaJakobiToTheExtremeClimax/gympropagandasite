@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body class="history-body">
+
+<div class="history-list">
+
+    {% if history %}
+        {% for workout in history %}
+        <div class="history-item">
+            <h4>{{ workout.template }} — {{ workout.date }}</h4>
+
+            {% for exercise, set_number, reps, weight in workout.sets %}
+                <p>
+                    <strong>{{ exercise }}</strong> — 
+                    Set {{ set_number }}: {{ reps }} reps @ {{ weight }}kg
+                </p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No workouts logged yet.</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

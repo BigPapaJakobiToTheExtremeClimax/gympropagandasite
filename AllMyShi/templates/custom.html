@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>Create Custom Workout</h2>
+
+    <form method="POST" action="{{ url_for('main.save_workout') }}" onsubmit="syncCustomWorkout()">
+        <input type="hidden" name="template_name" value="Custom">
+
+        <div id="exercise-list"></div>
+
+        <button type="button" class="template-btn" onclick="addExercise()">Add Exercise</button>
+        <button type="submit" class="template-btn">Save Workout</button>
+    </form>
+</div>
+
+<script>
+const exercises = {{ exercises|tojson }};
+
+function addExercise() {
+    const container = document.getElementById("exercise-list");
+
+    const card = document.createElement("div");
+    card.classList.add("exercise-card");
+
+    card.innerHTML = `
+        <select class="exercise-select">
+            ${exercises.map(e => `<option value="${e}">${e}</option>`).join("")}
+        </select>
+
+        <div class="sets"></div>
+
+        <button type="button" class="done-btn" onclick="addSet(this)">Add Set</button>
+        <button type="button" class="done-btn" onclick="this.parentElement.remove()">Remove Exercise</button>
+    `;
+
+    container.appendChild(card);
+}
+
+function addSet(button) {
+    const setsDiv = button.parentElement.querySelector(".sets");
+
+    const setRow = document.createElement("div");
+    setRow.classList.add("set-row");
+
+    setRow.innerHTML = `
+        <input type="number" class="reps-input" placeholder="Reps">
+        <input type="number" class="weight-input" placeholder="Weight (kg)">
+        <button type="button" class="done-btn" onclick="this.parentElement.remove()">Remove Set</button>
+    `;
+
+    setsDiv.appendChild(setRow);
+}
+
+function syncCustomWorkout() {
+    const cards = document.querySelectorAll(".exercise-card");
+
+    cards.forEach((card, i) => {
+        const exercise = card.querySelector(".exercise-select").value;
+        const sets = card.querySelectorAll(".set-row");
+
+        sets.forEach((set, j) => {
+            const reps = set.querySelector(".reps-input").value;
+            const weight = set.querySelector(".weight-input").value;
+
+            const repsHidden = document.createElement("input");
+            repsHidden.type = "hidden";
+            repsHidden.name = `reps_${j+1}_${exercise}`;
+            repsHidden.value = reps;
+
+            const weightHidden = document.createElement("input");
+            weightHidden.type = "hidden";
+            weightHidden.name = `weight_${j+1}_${exercise}`;
+            weightHidden.value = weight;
+
+            document.forms[0].appendChild(repsHidden);
+            document.forms[0].appendChild(weightHidden);
+        });
+    });
+}
+</script>
+{% endblock %}

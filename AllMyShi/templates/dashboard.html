@@ -4,4 +4,33 @@
     <h2>Dashboard</h2>
     <p>Welcome to your dashboard.</p>
 </div>
+
+<div class="template-buttons">
+    <a class="template-btn" href="{{ url_for('main.calendar_page') }}">Workout Calendar</a>
+    <a class="template-btn" href="{{ url_for('main.custom_workout') }}">Custom Workout</a>
+    <a class="template-btn" href="{{ url_for('main.exercise_library') }}">Exercise Library</a>
+</div>
+
+<div class="history-container">
+    <h3>Your Workout History</h3>
+
+    <div class="history-list">
+        {% if history %}
+            {% for workout in history %}
+            <div class="history-item">
+                <h4>{{ workout.template }} — {{ workout.date }}</h4>
+
+                {% for exercise, set_number, reps, weight in workout.sets %}
+                    <p>
+                        <strong>{{ exercise }}</strong> —
+                        Set {{ set_number }}: {{ reps }} reps @ {{ weight }}kg
+                    </p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No workouts logged yet.</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

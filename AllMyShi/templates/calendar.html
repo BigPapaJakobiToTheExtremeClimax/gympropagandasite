@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>{{ month }}/{{ year }} Workout Calendar</h2>
+
+    <div class="calendar-nav">
+        <a class="template-btn" href="{{ url_for('main.calendar_page', year=prev_year, month=prev_month) }}">
+            ← Previous
+        </a>
+
+        <a class="template-btn" href="{{ url_for('main.calendar_page', year=next_year, month=next_month) }}">
+            Next →
+        </a>
+    </div>
+
+    <div class="calendar-grid">
+        <div class="calendar-row header">
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+            <div>Sun</div>
+        </div>
+
+        {% for week in cal %}
+        <div class="calendar-row">
+            {% for day in week %}
+                {% if day == 0 %}
+                    <div class="day empty"></div>
+                {% else %}
+                    {% set date_str = year ~ "-" ~ "%02d"|format(month) ~ "-" ~ "%02d"|format(day) %}
+                    <div class="day {% if date_str in workout_dates %}worked-out{% endif %}">
+                        {{ day }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

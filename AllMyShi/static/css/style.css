@@ -1,4 +1,6 @@
-/* Global reset */
+/* --------------------------------------------------
+   GLOBAL RESET & BASE STYLES
+-------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +8,19 @@
     font-family: Arial, sans-serif;
 }
 
-/* Page background */
 body {
     background: #000;
     color: #fff;
+
+    /* ⭐ Add side margins here */
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
-/* Header */
+
+/* --------------------------------------------------
+   HEADER & NAVBAR
+-------------------------------------------------- */
 header {
     padding: 20px;
     text-align: center;
@@ -20,81 +28,9 @@ header {
     border-bottom: 2px solid #007bff;
 }
 
-/* Hero section */
-.hero {
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    color: #007bff;
-}
-
-.hero p {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #ccc;
-}
-
-/* Form container */
-.form-container {
-    width: 300px;
-    margin: 10vh auto;
-    text-align: center;
-}
-
-/* Inputs */
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    background: #111;
-    color: #fff;
-}
-
-input::placeholder {
-    color: #888;
-}
-
-/* Buttons */
-button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    border: none;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0066d6;
-}
-
-.done-btn {
-    background: #007bff;
-    padding: 6px 12px;
-    border-radius: 4px;
-}
-
-.done-btn.completed {
-    background: #28a745;
-}
-
-/* Error text */
-.error {
-    color: #ff4444;
-    margin-bottom: 10px;
-}
-
-/* Navbar */
 .navbar {
     margin-top: 10px;
     display: flex;
-    justify-content: flex-start;
     gap: 20px;
     align-items: center;
 }
@@ -114,7 +50,88 @@ button:hover {
     margin-left: auto;
 }
 
-/* Template buttons */
+/* --------------------------------------------------
+   HERO SECTION
+-------------------------------------------------- */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #007bff;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* --------------------------------------------------
+   FORM CONTAINER & INPUTS
+-------------------------------------------------- */
+.form-container {
+    width: 300px;
+    margin: 10vh auto;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    background: #111;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+/* --------------------------------------------------
+   BUTTONS
+-------------------------------------------------- */
+button,
+.done-btn {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover,
+.template-btn:hover,
+.done-btn:hover {
+    background: #0066d6;
+}
+
+.done-btn {
+    width: auto;
+    padding: 6px 12px;
+}
+
+.done-btn.completed {
+    background: #28a745;
+}
+
+/* --------------------------------------------------
+   ERROR TEXT
+-------------------------------------------------- */
+.error {
+    color: #ff4444;
+    margin-bottom: 10px;
+}
+
+/* --------------------------------------------------
+   TEMPLATE BUTTONS
+-------------------------------------------------- */
 .template-buttons {
     display: flex;
     flex-direction: column;
@@ -133,6 +150,152 @@ button:hover {
     text-align: center;
 }
 
-.template-btn:hover {
-    background: #0066d6;
+/* --------------------------------------------------
+   CALENDAR
+-------------------------------------------------- */
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calendar-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.calendar-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    padding: 15px;
+    background: #001a33;
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.day.worked-out {
+    background: #007bff;
+}
+
+.day.empty {
+    background: transparent;
+}
+
+/* --------------------------------------------------
+   CUSTOM WORKOUT BUILDER
+-------------------------------------------------- */
+.exercise-card {
+    background: #111;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.exercise-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------
+   EXERCISE LIBRARY
+-------------------------------------------------- */
+.exercise-list {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.exercise-item {
+    margin-bottom: 12px;
+}
+
+.exercise-item a {
+    color: #007bff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.exercise-item a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------
+   GIF POPUP
+-------------------------------------------------- */
+.gif-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.gif-popup-content {
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.gif-popup-content img {
+    max-width: 90%;
+    border-radius: 6px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* --------------------------------------------------
+   WORKOUT HISTORY (Dashboard Section)
+-------------------------------------------------- */
+.history-container {
+    margin-top: 30px;
+    background: #0d0d0d;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+.history-container h3 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.history-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.history-item {
+    background: #111;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    color: white;
+}
+
+.history-item h4 {
+    margin-bottom: 10px;
+    color: #4da3ff;
 }
